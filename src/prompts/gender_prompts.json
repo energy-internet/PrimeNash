@@ -1,0 +1,19 @@
+{
+    "game_setting": {
+        "description": "Game setup:\n- There are two players: a husband and a wife. They need to make decisions independently and simultaneously on what to do in the evening.\n- First, the husband decides whether to 'Stay at Home' or 'Go Out'.\n  - If the husband chooses to 'Stay at Home', the game ends, and both he and his wife get a payoff of 2.\n  - If the husband chooses to 'Go Out', the game continues, and both need to make the next choice.\n- After the husband chooses 'Go Out', they face a second-level choice: to watch a sports game or attend a concert.\n  - If both choose to watch the sports game (Husband B, Wife b), then the husband gets a payoff of 3, and the wife gets a payoff of 1.\n  - If both choose to attend the concert (Husband O, Wife o), then the wife gets a payoff of 3, and the husband gets a payoff of 1.\n  - If they choose differently (one chooses the sports game and the other the concert), they both get a payoff of 0."
+    },
+    "subgame": {
+        "template": "Assume you are an expert scholar, please solve for the nash equilibrium (pure and mixed) in the following game:\n\n{game_setting}\n\nTry the following strategy:\n- Identify the subgames and solve for their Nash equilibria\n- Solve for both pure and mixed strategy Nash equilibria\n\nPlease provide your solution in the following format:\n'Pure Nash Equilibrium': '(B/O; b/o),...'\n'Mixed Nash Equilibrium': '(p*B+(1-p)*O; q*b+(1-q)*o)'"
+    },
+    "complete_game": {
+        "template": "Assume you are an expert scholar, please solve for the nash equilibrium (pure and mixed) in the following game:\n\n{game_setting}\n\nGiven the Nash Equilibrium to the subgame:\n'Pure Nash Equilibrium': '({pure_nash})'\n'Mixed Nash Equilibrium': '({mixed_nash})'\n\nCalculate the husband's expected payoff for each equilibrium solution and compare with 'Stay at Home' (2,2).\nAdd the optimal decision to each equilibrium solution.\n\nPlease provide your equilibrium in the following format:\n'Pure Nash Equilibrium': '((Go Out/Home;B); b), ...'\n'Mixed Nash Equilibrium': '((Go Out/Home;p*B+(1-p)*O); q*b+(1-q)*o)'"
+    },
+    "evaluation": {
+        "template": "Please evaluate the Nash equilibrium solution for the gender game:\n{subgame_response}\n{complete_game_response}\n\nPlease provide a score from 0-100 based on the correctness and completeness of the solution.\nFormat your response as: {{'score': 'XX'}} where XX is the numerical score."
+    },
+    "sr": {
+        "base": "Assume you are an expert scholar, please solve for the nash equilibrium based on these high-quality responses:\n\n{game_setting}\n",
+        "top_responses": "Response 1: {response1}\nResponse 2: {response2}\nResponse 3: {response3}\n",
+        "nash_responses": "Pure Nash Equilibrium: {pure_nash}\nMixed Nash Equilibrium: {mixed_nash}\n"
+    }
+}
